@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrays</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>	
+</head>
+
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+		
+		// Component using list statically
+		class ListCourses extends React.Component{
+			render(){
+				return <div>
+					<h1>{this.props.title}</h1>
+					<ul>
+						<li>ReactJS</li>
+						<li>AngularJS</li>
+						<li>Express</li>
+						<li>NodeJS</li>
+					</ul>
+				</div>
+			}
+		}
+
+		// Component using Arrays for loop
+		class ListCourses2 extends React.Component{
+			render(){
+
+				var courses = ['Angular','React','Express','Node']; // array
+
+				var liElements = []; // array for JSX
+
+				for(var course of courses){
+					liElements.push(<li>{course}</li>);
+				}
+
+				return <div>
+							<h1>{this.props.title}</h1>
+							<ul>{liElements}</ul>
+					   </div>
+	
+			}
+		}
+
+		// Component using map to dinamically generate list elements, for unique "key" prop in the list
+		class ListCourses3 extends React.Component{
+			render(){
+
+				var courses = ['Angular','React','Express','Node'];
+
+				return <div>
+							<h1>{this.props.title}</h1>
+							<ul>{courses.map(course=><li>{course}</li>)}</ul>
+						</div>
+
+			}
+		}
+		
+		ReactDOM.render(<ListCourses2 title="List Of Courses"/>,document.getElementById("root"));
+	</script>
+</body>
+</html>

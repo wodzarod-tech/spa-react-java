@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First Reaction</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>	
+</head>
+
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+		
+		// Component DisplayCustomer
+		// name
+		// email
+		// address
+		//   street
+		//   city
+		class DisplayCustomer extends React.Component{
+			render(){
+				return <div><h1>Customer Details</h1>
+				<b>Name: {this.props.name}</b><br/>
+				<b>Email: {this.props.email}</b>
+				<DisplayAddress address={this.props.address}/>
+				</div>;
+
+			}
+		}
+
+		// Component DisplayAddress
+		// address
+		//   street
+		//   city
+		class DisplayAddress extends React.Component{
+			render(){
+				return <div><b>Address</b><br/>
+				Street:{this.props.address.street}<br/>
+				City:{this.props.address.city}
+				</div>
+			}
+		}
+
+		var address1 ={
+			street: "Spice Wood Springs",
+			city:"Austin"
+		};
+
+		var address2 ={
+			street: "Mira Mesa Blvd",
+			city:"San Diego"
+		};
+		
+		// First component to render is DisplayCustomer
+		// Adjacent JSX elements must be wrapped in an enclosing tag (<div>):
+		ReactDOM.render(<div><DisplayCustomer name="John" email="john@gmail.com" address={address1}/>
+							 <DisplayCustomer name="Bob" email="bob@gmail.com" address={address2}/></div>,document.getElementById("root"));
+	</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrays</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>	
+</head>
+
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+		
+		// Components
+		class ListStudents extends React.Component{
+
+			render(){
+				return <div>
+					{this.props.title}
+					<table>
+						<thead>
+							<tr>
+								<td>Name</td>
+								<td>Age</td>
+								<td>City</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Doug</td>
+								<td>40</td>
+								<td>King Of Prussia</td>
+							</tr>
+							<tr>
+								<td>Ahmed</td>
+								<td>34</td>
+								<td>King Of Prussia</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			}
+		}
+
+		// Component create table dynamically
+		class ListStudents2 extends React.Component{
+
+			render(){
+
+				var students = [{name:"Doug",age:40,city:"King Of Prussia"},
+								{name:"Ahmed",age:34,city:"King Of Prussia"}];
+
+				return <div>
+					{this.props.title}
+					<table>
+						<thead>
+							<tr>
+								<td>Name</td>
+								<td>Age</td>
+								<td>City</td>
+							</tr>
+						</thead>
+						<tbody>
+							{students.map(student => <tr>
+								<td>{student.name}</td>
+								<td>{student.age}</td>
+								<td>{student.city}</td>
+							</tr>
+							)}							
+						</tbody>
+					</table>
+				</div>
+			}
+		}
+		
+		// Component create table dynamically
+		class RowCreator extends React.Component{
+
+			render(){
+
+					var student = this.props.item;
+
+					return <tr>
+							<td>{student.name}</td>
+							<td>{student.age}</td>
+							<td>{student.city}</td>
+							</tr>
+			}
+		}
+		
+		// Component create table dynamically
+		class ListStudents3 extends React.Component{
+
+			render(){
+
+				var students = [{name:"Doug",age:40,city:"King Of Prussia"},
+								{name:"Ahmed",age:34,city:"King Of Prussia"}];
+
+				return <div>
+					{this.props.title}
+					<table>
+						<thead>
+							<tr>
+								<td>Name</td>
+								<td>Age</td>
+								<td>City</td>
+							</tr>
+						</thead>
+						<tbody>
+							{students.map(student => <RowCreator item={student}/>
+							)}
+						</tbody>
+					</table>
+				</div>
+			}
+		}
+	
+		// Render
+		ReactDOM.render(<ListStudents3 title="List Of Students"/>,document.getElementById("root"));
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First Reaction</title>
+	<meta charset="utf-8" />
+	
+	<!-- React Scripts: CDN react links -->
+	<!-- to use React DOM API in HTML pages -->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<!-- CDN babel standalone -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+	
+	<style>
+	#root {
+		background-color: brown;
+	}
+
+	#root h1{
+		font-size: 80px;
+		color: black;
+	}
+	</style>
+</head>
+
+<body>
+	<div id="root"></root>
+	
+	<script type="text/babel" charset="utf-8"> // JSX into JavaScript
+		ReactDOM.render(<h1>First React</h1>,document.getElementById("root")); // JSX: ReactDOM.render({DOM element to render}, {DOM element to apply the render}}
+		
+		// ReactDOM.render(<h1>First React</h1>,document.body); // rendering body is no a good practice, instead use elements/components like root
+	</script>
+</body>
+
+</html>

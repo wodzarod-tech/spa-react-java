@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First Reaction</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>	
+</head>
+
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+
+
+		// Component
+		class Login extends React.Component{
+
+			// event = react synthetic event properties
+			handleSubmit(event){
+				alert("Inside Handle Submit");
+				console.log(event.type); // return: click
+				console.log(this); // this reference to object button Submit
+			}
+
+			// bind(this): pass reference of button to event
+			render(){
+				return <div>
+					<h1>{this.props.title}</h1>
+					<label>User Name</label>
+					<input type='text'/>
+					<br/><br/>
+					<label>Password</label>
+					<input type='password'/>
+					<br/><br/>
+					<input type="button" value="Submit" onClick={this.handleSubmit.bind(this)}/>
+				</div>
+			}
+		}
+
+		ReactDOM.render(<div><Login title="Please Login"/></div>,document.getElementById("root"));
+	</script>
+</body>
+</html>

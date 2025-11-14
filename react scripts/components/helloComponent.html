@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First Reaction</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>	
+</head>
+
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+	
+		// Class-Based Component:
+		// support state management
+		
+		/*
+		// Create Hello component
+		class Hello extends React.Component{
+			render(){
+				return <b>Hello</b>;
+			}
+		}
+
+		ReactDOM.render(<Hello/>,document.getElementById("root"));
+		*/
+		/*
+		// Create Hello component and childrens
+		class Hello extends React.Component{
+			render(){
+				return <b>Hello {this.props.name} {this.props.children}</b>;
+			}
+		}
+		
+		ReactDOM.render(<div><Hello name="Bharath"><p>Thippireddy</p></Hello><Hello name="John"/></div>,document.getElementById("root"));
+		*/
+		
+		/*************************************/
+		
+		// Function-Based Component:
+		// no support state management, for that use React Hooks
+		
+		// Create Functional Components
+		function Hello(props) {
+			return <b>Hello {props.name} {props.children}</b>;
+		}
+		
+		ReactDOM.render(<div><Hello name="Bharath"><p>Thippireddy</p></Hello><Hello name="John"/></div>,document.getElementById("root"));
+		
+	</script>
+</body>
+
+</html>

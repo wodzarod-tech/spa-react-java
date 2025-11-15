@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First Reaction</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+	<style>
+	
+	<!-- way 1: Defining general style:
+	#root {
+		background-color: brown;
+	}
+	
+	#root h1{
+		font-size: 80px;
+		color: black;
+	}-->
+	
+	<!-- way 2: Using class name:
+	.text{
+		background-color: yellow;
+		color:red;
+		font-size: 30px;
+		text-align: center;
+		padding: 10px;
+		margin: 10px;
+	}-->
+	
+	</style>
+</head>
+
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+
+		// way 1:
+		//ReactDOM.render(<h1>First React</h1>,document.getElementById("root"));
+
+		// way 2:
+		/*
+		class Text extends React.Component{
+			render(){
+				return <div className="text">
+				{this.props.children}
+				</div>
+			}
+		}
+		
+		ReactDOM.render(<div><Text>USA</Text>
+			<Text>India</Text>
+			<Text>Brazil</Text>
+			<Text>UAE</Text>
+			</div>,document.getElementById("root"));
+		*/
+		
+		// way 3: Component for Style
+		class Text extends React.Component{
+			render(){
+				var textStyle = {
+					backgroundColor: this.props.bgcolor,
+					color:"red",
+					fontSize: 20,
+					textAlign: "center",
+					padding: 10,
+					margin:10
+				};
+
+				return <div style={textStyle}>
+				{this.props.children}
+				</div>
+			}
+		}
+
+		var india = <Text bgcolor="brown">India</Text>;
+
+		ReactDOM.render(<div><Text>USA</Text>{/* comment block: This Component
+			represent USA */}
+			{india} {/* expression element */}
+			<Text bgcolor="blue">Brazil</Text>
+			<Text bgcolor="yellow">UAE</Text>
+			</div>,document.getElementById("root"));
+			
+	</script>
+</body>
+
+</html>

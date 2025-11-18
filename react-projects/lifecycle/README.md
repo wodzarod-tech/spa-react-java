@@ -1,4 +1,6 @@
 # Notes
+React component lifecyle
+
 Lifecycle to COUNT each click
 
 using React Hooks (useState)

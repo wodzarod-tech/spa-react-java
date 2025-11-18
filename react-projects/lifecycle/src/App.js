@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // For older version of React
 /*
@@ -29,8 +29,20 @@ function App() {
 
   const [count, setCount] = useState(0); // React Hooks (useState)
 
+  // componentDidMount equivalent (runs once when component loads)
+  useEffect(() => {
+    console.log("componentDidMount");
+  }, []);
+
+  // componentDidUpdate equivalent (runs when 'count' changes)
+  useEffect(() => {
+    if (count > 0) {
+      console.log("componentDidUpdate");
+    }
+  }, [count]);
+
   const handleClick = () => {
-    setCount(count + 1);
+    setCount(prev => prev + 1); // safer update form
   }
 
   return (

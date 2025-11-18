@@ -41,8 +41,33 @@ function App() {
     }
   }, [count]);
 
+  /*
+  // For class component
+  shouldComponenUpdate(props, newState) {
+    if(newState.count%3 == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  */
+
+  /*
   const handleClick = () => {
     setCount(prev => prev + 1); // safer update form
+  }*/
+
+  const handleClick = () => {
+        setCount(prev => {
+      const next = prev + 1;
+
+      // shouldComponentUpdate equivalent
+      if (next % 3 === 0) {
+        return next; // allow update
+      }
+
+      return prev; // block update (no re-render)
+    });
   }
 
   return (
